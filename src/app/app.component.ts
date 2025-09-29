@@ -3,6 +3,9 @@ import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from "./tasks/tasks.component";
+
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,6 +19,10 @@ export class AppComponent {
   onSelectUser( id: string) {
     this.selectedUserId = id;
 
+  }
+
+  get selectedUser() {
+    return this.users.find((user) => user.id === this.selectedUserId)!;
   }
   selectedUserId = 'U1';
   users = DUMMY_USERS;
